@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hello WebSocket</title>
+    <meta charset="UTF-8">
+    <link href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="main.css" rel="stylesheet">
+    <script src="/webjars/jquery/3.1.1-1/jquery.min.js"></script>
+    <script src="/webjars/sockjs-client/1.0.2/sockjs.min.js"></script>
+    <script src="/webjars/stomp-websocket/2.3.3/stomp.min.js"></script>
+    <script src="app.js"></script>
+</head>
+<body>
+<div id="main-content" class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <h3 style="color:blueviolet;">当前在线用户：<label id="count"></label></h3>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <form class="form-inline">
+                <div class="form-group">
+                    <label for="connect">连接聊天服务器:</label>
+                    <button id="connect" class="btn btn-default" type="submit">Connect</button>
+                    <button id="disconnect" class="btn btn-default" type="submit" disabled="disabled">Disconnect
+                    </button>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <form class="form-inline">
+                <div class="form-group">
+                    <label for="name">聊天昵称:</label>
+                    <input type="text" id="name" class="form-control" placeholder="聊天昵称...">
+                </div>
+            </form>
+        </div>
+    </div>
+    <tr/>
+    <div class="row">
+        <div class="col-md-6">
+            <form class="form-inline">
+                <div class="form-group">
+                    <input type="text" id="chatAll" class="form-control" placeholder="群发消息...">
+                </div>
+                <button id="send" class="btn btn-default" type="submit">Send</button>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            <form class="form-inline">
+                <div class="form-group">
+                    <input type="text" id="chatName" class="form-control" placeholder="私聊用户...">
+                    <input type="text" id="chatOne" class="form-control" placeholder="私发消息...">
+                </div>
+                <button id="sendOne" class="btn btn-default" type="submit">Send</button>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <table id="conversation" class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Message</th>
+                </tr>
+                <!--<tbody id="greetings"></tbody>-->
+                </thead>
+            </table>
+        </div>
+            <div class="talk_show" id="words" style="display: inline-block;">
+            </div>
+            <div class="talk_show" id="words2" style="display: inline-block; margin-left: 50px">
+            </div>
+    </div>
+</div>
+</body>
+
+<style type="text/css">
+    .talk_show {
+        width: 410px;
+        height: 520px;
+        border: 1px solid #666;
+        margin: 10px auto 0;
+        background: #f9f9f9;
+        white-space: nowrap;
+        overflow: auto;
+    }
+
+    .atalk {
+        margin: 10px;
+    }
+
+    .atalk span {
+        display: inline-block;
+        background: #0181cc;
+        border-radius: 10px;
+        color: #fff;
+        padding: 5px 10px;
+    }
+
+    .btalk {
+        margin: 10px;
+        text-align: right;
+    }
+
+    .btalk span {
+        display: inline-block;
+        background: #ef8201;
+        border-radius: 10px;
+        color: #fff;
+        padding: 5px 10px;
+    }
+</style>
+
+</html>
